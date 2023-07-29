@@ -30,4 +30,4 @@ You can change the states of your posts by clicking the `hide` and `unhide` butt
 
 Notice that once you click the `delete` button, the public or private post will be moved to the `draft` category, while the draft post will be directly deleted from the system. Be careful with the draft posts deletion!
 
-You can find the release notes [here](./CHANGELOG.md).
+You can find the release notes [here](CHANGELOG.md).

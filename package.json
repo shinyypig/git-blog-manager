@@ -3,13 +3,18 @@
     "displayName": "Git Blog Manager",
     "description": "A manager for git blog.",
     "version": "0.0.1",
+    "publisher": "shinyypig",
+    "license": "MIT",
+    "icon": "assets/android-chrome-512x512.png",
     "engines": {
         "vscode": "^1.80.0"
     },
     "categories": [
         "Other"
     ],
-    "activationEvents": [],
+    "activationEvents": [
+        "onView:gitBlogManager"
+    ],
     "main": "./dist/extension.js",
     "contributes": {
         "viewsContainers": {
