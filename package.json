@@ -17,7 +17,7 @@
                 {
                     "id": "gitBlogManager",
                     "title": "Git Blog Manager",
-                    "icon": "$(zap)"
+                    "icon": "$(library)"
                 }
             ]
         },
@@ -130,12 +130,12 @@
             "properties": {
                 "git-blog-manager.postsRoot": {
                     "type": "string",
-                    "default": "",
+                    "default": "/Users/liangliang/Git/Blog",
                     "description": "The root directory of your blog posts."
                 },
                 "git-blog-manager.blogURL": {
                     "type": "string",
-                    "default": "",
+                    "default": "https://shinyypig.top/",
                     "description": "The URL of your blog website."
                 },
                 "git-blog-manager.defaultPostState": {
