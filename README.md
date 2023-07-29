@@ -5,7 +5,7 @@
 ![stars](https://img.shields.io/github/stars/shinyypig/git-blog-manager)
 ![last_commit](https://img.shields.io/github/last-commit/shinyypig/git-blog-manager)
 
-This extension is used to manage your blog posts hosted by [git blog](https://github.com/shinyypig/git-blog).
+This vscode extension is used to manage your blog posts hosted by [git blog](https://github.com/shinyypig/git-blog).
 
 ## Features
 
