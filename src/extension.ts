@@ -73,6 +73,7 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(syncAllPosts, newPost);
 
     if (postsRoot && postsRoot.length > 0) {
+        manager.checkPostsList();
         vscode.window.createTreeView("draftPosts", {
             treeDataProvider: manager.draftPostsProvider,
         });

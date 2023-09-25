@@ -2,7 +2,7 @@
     "name": "git-blog-manager",
     "displayName": "Git Blog Manager",
     "description": "A manager for git blog.",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "shinyypig",
     "license": "MIT",
     "icon": "assets/android-chrome-512x512.png",
