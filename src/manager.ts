@@ -562,28 +562,44 @@ export function syncPost(post: PostItem) {
         },
         (process) => {
             process.report({ increment: 0, message: "Syncing ..." });
-            let output = child_process.execSync(
-                `git add . && git commit -m "update"`,
-                {
+            let output = child_process.execSync(`git status`, {
+                cwd: path.join(postsRoot, postName),
+            });
+            let gitStatus = output.toString();
+            gitBlogMananger.appendLine(gitStatus);
+
+            if (gitStatus.includes("nothing to commit")) {
+                output = child_process.execSync(`git pull --rebase`, {
                     cwd: path.join(postsRoot, postName),
-                }
-            );
-            gitBlogMananger.appendLine(output.toString());
+                });
+                gitBlogMananger.appendLine(output.toString());
+            } else {
+                output = child_process.execSync(
+                    `git add . && git commit -m "update" && git pull --rebase`,
+                    {
+                        cwd: path.join(postsRoot, postName),
+                    }
+                );
+                gitBlogMananger.appendLine(output.toString());
+            }
 
-            output = child_process.execSync(`git pull --rebase`, {
+            output = child_process.execSync(`git status`, {
                 cwd: path.join(postsRoot, postName),
             });
-            gitBlogMananger.appendLine(output.toString());
-
-            process.report({ increment: 40, message: "Pushing..." });
-            output = child_process.execSync(`git push -u origin main`, {
-                cwd: path.join(postsRoot, postName),
-            });
-            gitBlogMananger.appendLine(output.toString());
-            gitBlogMananger.appendLine("Post synced.");
+            gitStatus = output.toString();
+            gitBlogMananger.appendLine(gitStatus);
+            console.log(gitStatus);
+            if (!gitStatus.includes("Your branch is up to date with")) {
+                process.report({ increment: 40, message: "Pushing..." });
+                output = child_process.execSync(`git push -u origin main`, {
+                    cwd: path.join(postsRoot, postName),
+                });
+                gitBlogMananger.appendLine(output.toString());
+                gitBlogMananger.appendLine("Post synced.");
+            }
 
             process.report({
-                increment: 80,
+                increment: 40,
                 message: "Refresh post list.",
             });
             // refresh the tree view
